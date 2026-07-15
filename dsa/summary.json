@@ -1,7 +1,54 @@
 {
-  "generated_at": "2025-12-03T19:39:16.219873Z",
+  "generated_at": "2026-06-03T03:44:39.490053Z",
   "repo_root": "/Users/aparnamogili/IdeaProjects/DSA/dsa",
   "patterns": {
+    "src/main/java/array": {
+      "count": 2,
+      "problems": [
+        {
+          "file": "src/main/java/array/LeftandRightSumDifferences.java",
+          "title": "Given an input array of integers nums, find an integer array, let's call it differenceArray, of the same length as an input integer array.",
+          "difficulty": "easy",
+          "tags": null,
+          "example": null,
+          "complexity": null,
+          "solved": true,
+          "notes_markdown": "Problem :\nGiven an input array of integers nums, find an integer array, let's call it differenceArray, of the same length as an input integer array.\n\nEach element of differenceArray, i.e., differenceArray[i], should be calculated as follows: take the sum of all elements to the left of index i in array nums (let's call it leftSumi), and subtract it from the sum of all elements to the right of index i in array nums (let's call it rightSumi), taking the absolute value of the result:\n\ndifferenceArray[i] = | leftSumi - rightSumi |\n\nIf there are no elements to the left or right of i, the corresponding sum should be taken as 0.\n\nExamples\nExample 1:\n\nInput: nums = [2, 5, 1, 6, 1]\nExpected Output: [13, 6, 0, 7, 14]\nExplanation:\nFor i=0: |(0) - (5+1+6+1)| = |0 - 13| = 13\nFor i=1: |(2) - (1+6+1)| = |2 - 8| = 6\nFor i=2: |(2+5) - (6+1)| = |7 - 7| = 0\nFor i=3: |(2+5+1) - (1)| = |8 - 1| = 7\nFor i=4: |(2+5+1+6) - (0)| = |14 - 0| = 14\nExample 2:\n\nInput: nums = [3, 3, 3]\nExpected Output: [6, 0, 6]\nExplanation:\nFor i=0: |(0) - (3+3)| = 6\nFor i=1: |(3) - (3)| = 0\nFor i=2: |(3+3) - (0)| = 6\nExample 3:\n\nInput: nums = [1, 2, 3, 4, 5]\nExpected Output: [14, 11, 6, 1, 10]\nExplanation:\nCalculations for each index i will follow the above-mentioned logic.\nConstraints:\n\n1 <= nums.length <= 1000\n1 <= nums[i] <= 105\n\nPattern:\nPrefix Sum\n\nKey Idea:\nReuse previous left and right sums instead of recalculating.\n\nTime:\nO(n)\n\nSpace:\nO(n)",
+          "commits": [],
+          "commit_date": null,
+          "r1": null,
+          "r2": null,
+          "r3": null,
+          "r4": null,
+          "revisions": [],
+          "next_due": null,
+          "next_step": "First revision (manual)",
+          "days_until_next": null
+        },
+        {
+          "file": "src/main/java/array/MaxAltitude.java",
+          "title": "Find Highest Altitude",
+          "difficulty": "easy",
+          "tags": null,
+          "example": null,
+          "complexity": null,
+          "solved": true,
+          "notes_markdown": "Pattern:\nRunning Sum / Prefix Sum\n\nKey Idea:\nMaintain current altitude while traversing.\nTrack maximum altitude encountered.\n\nTime:\nO(n)\n\nSpace:\nO(1)\n\nRecognition:\nCurrent state depends on cumulative previous values.\n\nMistake:\nNone.\n\n\nProblem Statement\nA bike rider is going on a ride. The road contains n + 1 points at different altitudes. The rider starts from point 0 at an altitude of 0.\n\nGiven an array of integers gain of length n, where gain[i] represents the net gain in altitude between points i and i + 1 for all (0 <= i < n), return the highest altitude of a point.\n\nExamples\nExample 1\nInput: gain = [-5, 1, 5, 0, -7]\nExpected Output: 1\nJustification: The altitude changes are [-5, -4, 1, 1, -6], where 1 is the highest altitude reached.\nExample 2\nInput: gain = [4, -3, 2, -1, -2]\nExpected Output: 4\nJustification: The altitude changes are [4, 1, 3, 2, 0], where 4 is the highest altitude reached.\nExample 3\nInput: gain = [2, 2, -3, -1, 2, 1, -5]\nExpected Output: 4\nJustification: The altitude changes are [2, 4, 1, 0, 2, 3, -2], where 4 is the highest altitude reached.\nConstraints:\n\nn == gain.length\n1 <= n <= 100\n-100 <= gain[i] <= 100",
+          "commits": [],
+          "commit_date": null,
+          "r1": null,
+          "r2": null,
+          "r3": null,
+          "r4": null,
+          "revisions": [],
+          "next_due": null,
+          "next_step": "First revision (manual)",
+          "days_until_next": null
+        }
+      ],
+      "notes": "## 🧠 Core Array Fundamentals\n\n### 1. Key Characteristics\n* **Same Data Type**: All elements must belong to a single type (e.g., all `int`, `float`, or `String`).\n* **Index-Based Access**: Elements are accessed via a zero-based index system (starting at `0`).\n* **Contiguous Memory**: Elements sit in consecutive memory locations, allowing fast, direct address calculations.\n\n---\n\n### 2. Static vs. Dynamic Arrays\n\n\n| Feature | Static Arrays | Dynamic Arrays |\n| :--- | :--- | :--- |\n| **Size** | Fixed at creation time | Can grow or shrink during runtime |\n| **Memory Allocation** | Stack (or fixed heap block) | Heap (allocated and resized dynamically) |\n| **Resizing** | Not possible without manual recreation | Handled automatically (requires internal copying) |\n| **Performance** | Fast access, zero overhead for size changes | Flexible, but resizing actions carry an $\\mathcal{O}(N)$ cost |\n| **Ease of Use** | Simple and memory-efficient | Highly flexible, abstracts resizing logic away |\n| **Use Case** | Best when data size is known and constant | Best when dataset size is unknown or highly variable |\n\n---\n\n### 3. Quick Decision Guide\n* **Use Static Arrays** when the total number of elements is fixed and predictable.\n* **Use Dynamic Arrays** when elements need to be added or removed constantly during runtime.\n\n```java\n// Static Array: Fixed allocation of 5 primitive slots\nint[] staticArray = new int[5]; \nstaticArray[0] = 1; \n\n// Dynamic Array: Resizable object wrapper container\nArrayList<Integer> dynamicArray = new ArrayList<>(); \ndynamicArray.add(1); \n```\n\n\n![img.png](img.png)\n\nKey Considerations for Arrays in Coding Interviews\n1. Validate Assumptions\n   Duplicates: Ask if duplicate values are allowed.\n   Sorted/Unsorted: Some algorithms (e.g., binary search) require sorted arrays.\n2. Handle Boundaries\n   Index Out of Bounds: Always check valid indices to avoid errors.\n   Negative Indices: In Python, negative indices access elements from the end.\n3. Efficiency Considerations\n   Slicing & Concatenation: Takes O(n) time, avoid unnecessary operations.\n   In-place vs. Extra Space: Try to optimize space usage.\n4. Loops & Naming\n   Use Descriptive Variable Names: Improves code clarity.\n   Watch Loop Indices: Avoid off-by-one errors.\n5. Algorithm Choice\n   Time & Space Complexity: Always analyze and justify.\n   Nested Loops: Avoid if possible, as they increase time complexity.\n6. Testing & Edge Cases\n   Empty, Single-Element, Large Arrays: Always test edge cases.\n   Various Inputs: Ensure the solution works for all possible cases.\n7. Handling Special Values\n   Zero & Negative Numbers: Important for sum/product-based problems.\n8. Modifying While Iterating\n   Avoid Direct Modification: Use a copy or iterate backward if needed.\n9. Array Methods\n\n## ⚡ Java Arrays & ArrayLists Cheat Sheet\n\n### 1. Fixed-Size Arrays (`int[]`, `String[]`)\nStandard arrays have a fixed memory footprint. Custom manipulations require static utility methods from `java.util.Arrays`.\n\n\n| Operation / Method | Time Complexity | Space Complexity | Interview Context / Notes |\n| :--- | :--- | :--- | :--- |\n| **Access / Modify** (`arr[i] = val`) | $\\mathcal{O}(1)$ | $\\mathcal{O}(1)$ | Immediate memory offset lookup. |\n| **Length** (`arr.length`) | $\\mathcal{O}(1)$ | $\\mathcal{O}(1)$ | Reads an internal metadata field. |\n| **Linear Search** (Manual Loop) | $\\mathcal{O}(N)$ | $\\mathcal{O}(1)$ | Worst-case requires scanning every element. |\n| **Sort** (`Arrays.sort(arr)`) | $\\mathcal{O}(N \\log N)$ | $\\mathcal{O}(N)$ or $\\mathcal{O}(1)$ | Primitives: Dual-Pivot Quicksort ($\\mathcal{O}(1)$ space). Objects: Timsort ($\\mathcal{O}(N)$ space). |\n| **Binary Search** (`Arrays.binarySearch(arr, tgt)`) | $\\mathcal{O}(\\log N)$ | $\\mathcal{O}(1)$ | **Requires sorted array**. Returns negative index if missing. |\n| **Copy / Resize** (`Arrays.copyOf(arr, newLen)`) | $\\mathcal{O}(N)$ | $\\mathcal{O}(N)$ | Allocates a brand new block of memory and duplicates data. |\n\n---\n\n### 2. Dynamic Arrays (`ArrayList<T>`)\nAn `ArrayList` manages a resizable backing array under the hood. Resizing defaults to scaling by 1.5x.\n\n\n| Operation / Method | Time Complexity | Space Complexity | Interview Context / Notes |\n| :--- | :--- | :--- | :--- |\n| **Get / Set** (`list.get(i)` / `list.set(i, val)`) | $\\mathcal{O}(1)$ | $\\mathcal{O}(1)$ | Direct indexing into the underlying array. |\n| **Append** (`list.add(val)`) | $\\mathcal{O}(1)$ *Amortized* | $\\mathcal{O}(1)$ | Takes $\\mathcal{O}(N)$ only when capacity fills up and forces a resize. |\n| **Insert** (`list.add(idx, val)`) | $\\mathcal{O}(N)$ | $\\mathcal{O}(1)$ | Shifts all elements to the right. Inserting at index `0` is $\\mathcal{O}(N)$. |\n| **Remove** (`list.remove(idx)`) | $\\mathcal{O}(N)$ | $\\mathcal{O}(1)$ | Shifts all elements to the left. Removing from index `0` is $\\mathcal{O}(N)$. |\n| **Lookup** (`list.contains(val)`) | $\\mathcal{O}(N)$ | $\\mathcal{O}(1)$ | Scans sequentially. Convert to `HashSet` if $\\mathcal{O}(1)$ lookups are vital. |\n| **Size** (`list.size()`) | $\\mathcal{O}(1)$ | $\\mathcal{O}(1)$ | Returns a simple counter tracker. |\n\n---\n\n### 🚨 Critical Interview Traps\n* **The $\\mathcal{O}(N^2)$ Trap**: Never use `list.remove(0)` or `list.add(0, val)` inside a loop. It forces an element shift every iteration. Use a **deque** (`ArrayDeque`) or **two-pointer technique** instead.\n* **Pre-allocate Capacity**: If the problem dictates the maximum size (e.g., matching input array length `N`), instantiate it using `new ArrayList<>(N)` to completely eliminate execution overhead from lazy dynamic resizing.",
+      "notes_path": "src/main/java/array/notes.md"
+    },
     "src/main/java/recursion": {
       "count": 0,
       "problems": [],
@@ -20,11 +67,23 @@
           "complexity": null,
           "solved": null,
           "notes_markdown": "",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-05T06:34:22.651139+00:00",
+          "r2": "2025-12-12T06:34:22.651139+00:00",
+          "r3": "2025-12-27T06:34:22.651139+00:00",
+          "r4": "2026-01-11T06:34:22.651139+00:00",
+          "revisions": [
+            "2025-12-05T06:34:22.651139+00:00"
+          ],
+          "next_due": "2025-12-12T06:34:22.651139+00:00",
+          "next_step": "Second revision",
+          "days_until_next": -173
         },
         {
           "file": "src/main/java/recursion/IBH/HeightOfABinaryTree.java",
@@ -35,11 +94,21 @@
           "complexity": null,
           "solved": true,
           "notes_markdown": "Examples :\n1)input : a\n/ \\\nb   c\n/ \\\nd   e\n/\nf\noutput : 4\n2)\ninput : a\n/ \\\nb   c\n/   / \\\nd   e   f\n\\\ng\n/ \\\nh   i\noutput : 5\nheight = # of layers (depth)\n\n💡 Notes for Your IBH Section\n| Step               | What It Means Here                                |\n| ------------------ | ------------------------------------------------- |\n| **Base Condition** | Tree is empty (`root == null`) → height = 0       |\n| **Hypothesis**     | Assume we know height of left and right subtrees  |\n| **Induction**      | Combine: `1 + max(leftHeight, rightHeight)`       |\n| **Visualization**  | A recursion tree (each node calling left + right) |\n| **Category**       | Recursive by nature (IBH fits perfectly)          |",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-21T20:10:50+00:00",
+          "r3": "2026-01-05T20:10:50+00:00",
+          "r4": null,
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/recursion/IBH/DeleteMiddleElementOfStack.java",
@@ -50,11 +119,21 @@
           "complexity": null,
           "solved": true,
           "notes_markdown": "Example:\n Input : [2, 3, 7, 6, 4, 5, 9]\n Output: [9, 7, 6, 4, 3, 2]   (middle element 5 removed)\n\n🧠 IBH Breakdown (Intuition)\n| Step               | Meaning                                                | In this problem                  |\n| ------------------ | ------------------------------------------------------ | -------------------------------- |\n| **Base Condition** | When we reach middle element                           | `if (index == 1)`                |\n| **Hypothesis**     | Assume recursion deletes mid element for smaller stack | `deleteMiddle(stack, index - 1)` |\n| **Induction**      | After deleting, restore the top elements               | `stack.push(top)`                |\n\n🪶 Summary for Notes\n| Concept            | Value                                                                                                                        |\n| ------------------ | ---------------------------------------------------------------------------------------------------------------------------- |\n| **Approach**       | IBH (Base → Hypothesis → Induction)                                                                                          |\n| **Base Condition** | When `index == 1`, pop the middle                                                                                            |\n| **Hypothesis**     | Assume recursion deletes mid from smaller stack                                                                              |\n| **Induction**      | Push back popped elements after recursive call                                                                               |\n| **Complexity**     | O(N) time, O(N) stack space                                                                                                  |\n| **Key Idea**       | Recursion naturally keeps track of “depth,” letting us delete the middle without explicit counting or extra data structures. |",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-21T20:10:50+00:00",
+          "r3": "2026-01-05T20:10:50+00:00",
+          "r4": null,
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/recursion/IBH/PrintNto1.java",
@@ -65,11 +144,21 @@
           "complexity": null,
           "solved": null,
           "notes_markdown": "",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/recursion/IBH/SortAnArray.java",
@@ -80,11 +169,21 @@
           "complexity": null,
           "solved": true,
           "notes_markdown": "ps : sort an array of integers using only recursion\ni/p: [2,3,7,6,4,5,9]\no/p : [2,3,4,5,6,7,9]\n🧠 IBH Method Breakdown\nBase Condition\nIf the list has one or zero elements, it’s already sorted.\nHypothesis\nAssume that sort() correctly sorts the first n-1 elements.\nInduction\n🪶 Key Takeaways\nTake the last element and insert it into the correct place in the sorted sub-list (using recursion again).\n| Step              | Concept                                | Explanation                       |\n| ----------------- | -------------------------------------- | --------------------------------- |\n| **Base**          | smallest valid input                   | Single-element list is sorted     |\n| **Hypothesis**    | recursive assumption                   | Assume sort() works for n−1       |\n| **Induction**     | logic to extend                        | Insert nth element in right place |\n| **Approach type** | IBH (Input reducing, not choice-based) | Each step shrinks list size by 1  |\n\n💡Tip:\nWhen doing recursion on lists:\nAlways create new copies (new ArrayList<>(...)) if you’re removing elements.\n(SubList in Java is a view, not a separate list!)\nPrefer returning new lists rather than mutating in place — makes the recursion pure and predictable.",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/recursion/IBH/Factorial.java",
@@ -95,11 +194,21 @@
           "complexity": null,
           "solved": null,
           "notes_markdown": "",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/recursion/IBH/SortAStack.java",
@@ -110,11 +219,21 @@
           "complexity": null,
           "solved": true,
           "notes_markdown": "ps : sort a stack using recursion\ni/p :\n1) 2,3,7,6,4,5,9));\n2) 2\n3) 2,3\n4) 2,2,2,2,2\n5) 2,3,4,5,6\n6) 6,5,4,3,2,1\n7) 5,2,2,7,9,9,9,2,2,4,4,1,0,0,0,0\no/p :\n1) 9 7 6 5 4 3 2\n2) 2\n3) 3 2\n4) 2 2 2 2 2\n5) 6 5 4 3 2\n6) 6 5 4 3 2 1\n7) 9 9 9 7 5 4 4 2 2 2 2 1 0 0 0 0\n🧠 Explanation — IBH Method Breakdown\n| Step               | Concept                              | Meaning Here                           |\n| ------------------ | ------------------------------------ | -------------------------------------- |\n| **Base Condition** | stack has ≤1 element                 | Already sorted                         |\n| **Hypothesis**     | assume smaller stack is sorted       | `sortStack()` sorts remaining elements |\n| **Induction**      | insert last popped element correctly | Use recursion again for insertion      |",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/recursion/IBH/KthSymbolInGrammarLeetCode779.java",
@@ -125,11 +244,21 @@
           "complexity": null,
           "solved": true,
           "notes_markdown": "For example, for n = 3, the 1st row is 0, the 2nd row is 01, and the 3rd row is 0110.\nGiven two integer n and k, return the kth (1-indexed) symbol in the nth row of a table of n rows.\n\nExamples:\n1)\nInput: n = 1, k = 1\nOutput: 0\nExplanation: row 1: 0\nExample 2:\n2)\nInput: n = 2, k = 1\nOutput: 0\nExplanation:\nrow 1: 0\nrow 2: 01\nExample 3:\n3)\nInput: n = 2, k = 2\nOutput: 1\nExplanation:\nrow 1: 0\nrow 2: 01\n\nConstraints:\n1 <= n <= 30\n1 <= k <= 2n - 1\n\nhttps://leetcode.com/problems/k-th-symbol-in-grammar/description/\n\nNotes:\n\nApproach 1: \"built the whole forest to find one leaf.\" 🌳\n\nApproach 2 : Optimized version:\n\"Now I know how trees grow, so I can walk directly to the leaf I need.\" 🍃\n\nApproach1 :\n\nThis version runs and prints the rows correctly for very small n,\nbut it isn’t what the LeetCode #779 problem is really asking you to do — and\nfor n = 30 it will overflow memory or hang because the full table has 2ⁿ – 1 ≈ a billion entries.\n\n🧩 What Approach1 code is doing:\nBuilds every row up to n using List<List<Integer>>.\nEach recursive call expands the previous row by duplicating all 0 → 01 and 1 → 10.\nThen prints the whole grammar and finally returns grammar[n-1][k-1].\n\n✅ Logic is fine for tiny n.\n❌ Space = O(2ⁿ), time = O(2ⁿ) — it’s exponential.\nThe problem statement only asks for the k-th symbol, so no need to materialize all rows.\n\n.\n\n🧠 Recursive pattern for the k-th symbol\nEach row doubles the previous one:\nrow1: 0\nrow2: 01\nrow3: 0110\nrow4: 01101001\n\nNotice:\na row has double no. of digits compared to the previous row.\nLength of row n = 2ⁿ⁻¹\nThe first half of row n is identical to row n – 1.\nThe second half is the bitwise NOT of row n – 1.\n\nSo the k-th symbol of row n depends only on the position of k:\nif k <= mid      → same as kthSymbolInGrammar(n-1, k)\nelse              → complement of kthSymbolInGrammar(n-1, k-mid)\nwhere mid = 2^(n-1).\n\n🧩 IBH Breakdown\n| Step           | Concept                                                        | Explanation                          |\n| -------------- | -------------------------------------------------------------- | ------------------------------------ |\n| **Base**       | Smallest valid case                                            | Row 1 → 0                            |\n| **Hypothesis** | Assume function works for smaller row (n-1)                    | Recursive call                       |\n| **Induction**  | Decide if k lies in first half (same) or second half (flipped) | `1 - kthSymbolInGrammar(n-1, k-mid)` |\n\n🧠 Intuitive Understanding\nRow 1: 0\nRow 2: 01\nRow 3: 0110\nRow 4: 01101001\n\n🟩 First half → copy previous row\n🟥 Second half → flip previous row\nSo, you never actually need to build these rows —\njust keep tracing where your k lies in the recursion tree!\n\n⏱ Complexity\n| Metric                  | Value                     |\n| ----------------------- | ------------------------- |\n| **Time**                | O(n) — depth of recursion |\n| **Space**               | O(n) — recursion stack    |\n| **No Extra Structures** | ✅                         |\n\n✅ Key Insight:\n\nThe kth symbol depends on whether k lies in the first half (same)\nor second half (complement) of the previous row.\n\n---\n\n## 💡 Step 1: Row structure\n\n| Row (n) | Content          | Length (2ⁿ⁻¹) |\n| ------- | ---------------- | ------------- |\n| 1       | 0                | 1             |\n| 2       | 01               | 2             |\n| 3       | 0110             | 4             |\n| 4       | 01101001         | 8             |\n| 5       | 0110100110010110 | 16            |\n\nSo, for **row n**,\n👉 length = `2^(n-1)`\n\n---\n\n## 💡 Step 2: Finding the middle index\n\nFor each new row, we split the previous row into **two halves**:\n\n```\nrow n = [first half same as row n-1] + [second half = flipped version]\n```\n\nThat means the **middle index** is exactly the *length of the previous row*, because that’s where the split happens.\n\n👉 middle = length of row (n - 1)\n👉 middle = `2^( (n - 1) - 1 ) = 2^(n - 2)`\n\n---\n\n## 💡 Step 3: How it looks for real rows\n\n| n | row length | middle (split) | left part length  |\n| - | ---------- | -------------- | ----------------- |\n| 2 | 2¹ = 2     | middle = 1     | left: 1, right: 1 |\n| 3 | 2² = 4     | middle = 2     | left: 2, right: 2 |\n| 4 | 2³ = 8     | middle = 4     | left: 4, right: 4 |\n\n→ Notice the **middle index = half of total length** = `2^(n - 2)`.\n\n---\n\n## 💡 Step 4: How this looks in bitwise shift form\n\n`1 << x` means “2 raised to the power x”.\n\nSo:\n\n`1 << (n - 1)` → total row length (`2^(n - 1)`)\n`1 << (n - 2)` → middle index (`2^(n - 2)`)\n\nThat’s why we use:\n\n```java\nint mid = 1 << (n - 2);\n```\n\n---\n\n## ✅ Visual Intuition\n\nFor `n = 4`:\n\n```\nRow length = 2^(4-1) = 8\nIndices:     1 2 3 4 | 5 6 7 8\n← first half →|← second half →\nMiddle = 2^(4-2) = 4\n```\n\nSo:\n\n`k <= mid (4)` → first half → same as row n-1\n`k > mid` → second half → complement of row n-1 (k - mid)\n\n---\n\n## ⚡ Shortcut Summary\n\n| Purpose                  | Formula        | Meaning                          |\n| ------------------------ | -------------- | -------------------------------- |\n| Total symbols in nth row | `1 << (n - 1)` | 2^(n-1)                          |\n| Midpoint (split index)   | `1 << (n - 2)` | 2^(n-2) = length of previous row |\n\n---\n\n✅ Therefore:\n\n```java\nint mid = 1 << (n - 2);  // correct midpoint\n```\n\nIf you used `1 << (n - 1)`, it would become the **total length**, not the middle — and your recursion would never reach the base condition correctly (you’d always fall into the second half case).\n---",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/recursion/IBH/TowersOfHanoi.java",
@@ -140,11 +269,21 @@
           "complexity": null,
           "solved": true,
           "notes_markdown": "### 🧠 Problem\nMove N disks from rod A → rod C using rod B, following rules:\n1. Only one disk can be moved at a time.\n2. Larger disk can’t be placed on smaller disk.\n3. Only top disk can be moved.\n\n🧠 IBH Recursion Breakdown (for your code)\n| Step                 | Meaning                                | Example (n=3)               |\n| -------------------- | -------------------------------------- | --------------------------- |\n| **Base**             | Move 1 disk from source → destination  | `move 1 from s → d`         |\n| **Hypothesis**       | Move top n-1 disks source → helper     | Move top 2 disks from s → h |\n| **Induction**        | Move largest disk source → destination | Move disk 3 from s → d      |\n| **Final Hypothesis** | Move n-1 disks helper → destination    | Move 2 disks from h → d     |\n\n🧮 Moves\n| N | Moves  | Formula |\n| - | ------ | ------- |\n| 1 | 1      | 2¹ - 1  |\n| 2 | 3      | 2² - 1  |\n| 3 | 7      | 2³ - 1  |\n| n | 2ⁿ - 1 | ✅       |\n\n🧮 Complexity\n| Measure              | Value                    |\n| -------------------- | ------------------------ |\n| **Moves**            | `2^n - 1`                |\n| **Time Complexity**  | `O(2^n)`                 |\n| **Space Complexity** | `O(n)` (recursion stack) |\n\n🪶 Summary for Notes\n| Concept              | Explanation                                                                                |\n| -------------------- | ------------------------------------------------------------------------------------------ |\n| **Base Condition**   | If 1 disk → move directly                                                                  |\n| **Hypothesis**       | Assume we can move n-1 disks                                                               |\n| **Induction**        | Move nth disk → then move smaller ones again                                               |\n| **Moves**            | 2ⁿ - 1                                                                                     |\n| **Time Complexity**  | O(2ⁿ)                                                                                      |\n| **Space Complexity** | O(n)                                                                                       |\n| **Key Idea**         | The recursion solves smaller subproblems twice — before and after moving the largest disk. |",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/recursion/IBH/ReverseAStack.java",
@@ -155,11 +294,21 @@
           "complexity": null,
           "solved": true,
           "notes_markdown": "No extra stack or loop allowed.\n\nExample:\nInput  : [2, 3, 7, 6, 4, 5, 9]\nOutput : [9, 5, 4, 6, 7, 3, 2]\n\n       6 5 4 3 2 1 --> 1 2 3 4 5 6\n5 4 3 2 1   --> 1 2 3 4 5\n4 3 2 1     --> 1 2 3 4\n3 2 1       --> 1 2 3\n2 1         --> 1 2\n1           --> 1\n\n💡 Complexity\n| Measure              | Value                                                      |\n| -------------------- | ---------------------------------------------------------- |\n| **Time Complexity**  | O(N²) → each `insert()` call can traverse up to N elements |\n| **Space Complexity** | O(N) → due to recursion stack                              |\n\n🧠 Intuitive IBH Recap\n\n| Step               | Meaning                         |      Code                            |\n| ------------------ | ------------------------------- | ------------------------------------ |\n| **Base Condition** | Empty stack → stop              | `if (stack.isEmpty()) return stack;` |\n| **Hypothesis**     | Assume smaller stack reversed   | `reverseStack(stack);`               |\n| **Induction**      | Place removed element at bottom | `insert(stack, peek);`               |\n\n✅ Key Idea:\nUse recursion to remove all elements, and while unwinding, insert each element at the bottom.\n\n✅ What i did:\n1. Used the IBH pattern\nBase Condition: stop when the stack is empty.\nHypothesis: assume reverseStack() reverses the smaller stack.\nInduction: insert the removed element (peek) at the bottom of that reversed stack.\n2. Handled insertion correctly\nYou used a helper insert() that recursively pushes the element at the bottom of the stack.\nThe order of pop → recurse → push back is exactly what makes it reverse properly.\n3. Didn’t use extra data structures beyond the recursion call stack.\n✅ This is a pure recursion solution.\n\n🧠 Intuition Trick\n🧩 \"Reverse a stack\" = “Reverse smaller part + put the removed element at bottom.”\nThe recursion’s call stack itself acts as the temporary structure.\n\n🪶 Notes for Your GitHub (Markdown Summary)\n| Concept              | Explanation                              |\n| -------------------- | ---------------------------------------- |\n| **Approach**         | IBH (Base → Hypothesis → Induction)      |\n| **Base Condition**   | Empty or single-element stack            |\n| **Hypothesis**       | Smaller stack is reversed                |\n| **Induction**        | Insert removed top element at bottom     |\n| **Time Complexity**  | O(N²) — each insertAtBottom is O(N)      |\n| **Space Complexity** | O(N) — due to recursion stack            |\n| **Category**         | Recursion using call stack (no extra DS) |",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         }
       ],
       "notes": null,
@@ -177,11 +326,21 @@
           "complexity": null,
           "solved": null,
           "notes_markdown": "\"abc\",\"\",0,[]\n\"abc\",\"\",1,[]                  \"abc\",\"a\",1,[]\n\"abc\",\"\",2,[] \"abc\",\"b\",2,[]  \"abc\",\"a\",2,[] \"abc\",\"ab\",2,[]\n\"abc\",\"\",3,[] \"abc\",\"c\",3,[] \"abc\",\"b\",3,[] \"abc\",\"bc\",3,[] \"abc\",\"a\",3,[] \"abc\",\"ac\",3,[]  \"abc\",\"ab\",3,[] \"abc\",\"abc\",3,[]\n[\"\",\"c\",\"b\",\"bc\",\"a\",\"ac\",\"ab\",\"abc\"]",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/recursion/recursiveTree/PermutationWithCaseChange.java",
@@ -192,11 +351,21 @@
           "complexity": null,
           "solved": true,
           "notes_markdown": "i/p : ab\no/p : ab\naB\nAb\nAB\ntwo branches per character (lower/upper), base at `index == ip.length()`. Works great.\n\nA few small, useful refinements:\n\n**Handle non-letters**: for inputs like `a1b`, digit `'1'` shouldn’t branch; otherwise both branches add `'1'` and  relied on `Set` to dedupe. Better: only branch when `isLetter`.\n**Predictable output order**: use `LinkedHashSet` (or a `List`) if you want to preserve generation order instead of hashing order.\n**Avoid `index++` in the same line**: small readability win.\n**Close the scanner**.\n**Perf nit**: `StringBuilder` avoids lots of string allocations (nice if strings get longer).\n\nHere’s a polished version with those tweaks:\n\n```java\npackage recursion.recursiveTree;\n\nimport java.util.LinkedHashSet;\nimport java.util.Scanner;\nimport java.util.Set;\n\npublic class PermutationWithCaseChange {\n/*\nInput:  a1b\nOutput: a1b, A1b, a1B, A1B\nRule: only letters toggle case; non-letters are copied as-is.\n\nstatic void main() {\nSystem.out.print(\"Enter String: \");\ntry (Scanner scanner = new Scanner(System.in)) {\nString ip = scanner.next();\nSet<String> results = new LinkedHashSet<>(); // preserves order\n\n// Use StringBuilder for efficiency\ngetPermutationsWithCaseChange(ip, new StringBuilder(), 0, results);\n\nresults.forEach(System.out::println);\n}\n}\n\nprivate static void getPermutationsWithCaseChange(\nString ip, StringBuilder op, int index, Set<String> out) {\n\nif (index == ip.length()) {\nout.add(op.toString());\nreturn;\n}\n\nchar ch = ip.charAt(index);\n\nif (Character.isLetter(ch)) {\n// branch 1: lower\nop.append(Character.toLowerCase(ch));\ngetPermutationsWithCaseChange(ip, op, index + 1, out);\nop.setLength(op.length() - 1);\n\n// branch 2: upper\nop.append(Character.toUpperCase(ch));\ngetPermutationsWithCaseChange(ip, op, index + 1, out);\nop.setLength(op.length() - 1);\n} else {\n// single path for non-letters\nop.append(ch);\ngetPermutationsWithCaseChange(ip, op, index + 1, out);\nop.setLength(op.length() - 1);\n}\n}\n}\n```\n\n### Quick notes\n\n**Correctness**: Same logic; just guards branching for non-letters.\n**Complexity**: `O(2^L)` time, `O(L)` recursion depth, where `L =` number of letters (non-letters don’t branch).\n**If input may already contain upper/lower mix**: this still toggles per character;  to *preserve original case as one branch*,\nadd a third path (but typical problem is exactly lower/upper).\nfollow-up variations next:\n\n**Letter Case Permutation with spaces allowed** (`a b`, `A b`, …),\n**Permutations skipping vowels**, or\n**Backtracking version that writes results directly to a list (no Set) but handles duplicates by sorting + skip-equal technique**.",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/recursion/recursiveTree/GenerateAllBalancedParentheses.java",
@@ -207,11 +376,21 @@
           "complexity": null,
           "solved": true,
           "notes_markdown": "ip : n = 2\no/p :\n()()\n(())\nip : n = 3\no/p : (()())\n()()()\n(())()\n()(())\n((()))",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/recursion/recursiveTree/PermutationWithSpaces.java",
@@ -222,11 +401,21 @@
           "complexity": null,
           "solved": true,
           "notes_markdown": "i/p : ABC\no/p : A B C\nA BC\nAB C\nABC\n\n\n## ✅ What Went Right\n\n### 1. **Correct recursive branching**\n\nFor each character → 2 choices:\n\nAdd with a space\nAdd without a space\n\nThis is exactly the recursive tree for *Permutation with Spaces*.\n\n```\nop + ch + \" \"   → include space\nop + ch         → exclude space\n```\n\n### 2. Using `index` to shrink input ✔\n\n### 3. Base case when `index == length` ✔\n\n### 4. Using a Set to avoid duplicates ✔ (good because input like `\"AAB\"` would duplicate)\n\n---\n\n## 🔍 Small Improvements\n\n### 1️⃣ There is an *extra leading space* issue if `op` starts empty.\n\nYour first recursive call produces `\"A \"` but intended first branch should start as `\"A\"`, not `\" A\"`.\n\n### 2️⃣ The problem always starts **without space before the first character**.\n\nSo we should initialize `op` with the *first character already placed*.\n\n### 3️⃣ Avoid `.trim()`, it hides logic mistakes — better to *prevent* the extra space.\n\n---\n\n## ✨ Corrected and Clean Version\n\n```java\npackage recursion.recursiveTree;\n\nimport java.util.HashSet;\nimport java.util.Scanner;\nimport java.util.Set;\n\npublic class PermutationWithSpaces {\n\nstatic void main() {\nSystem.out.print(\"Enter String: \");\nScanner sc = new Scanner(System.in);\nString ip = sc.next();\nsc.close();\n\nSet<String> result = new HashSet<>();\n\n// Initialize output with first character (no space before it)\ngetPermutationWithSpaces(ip, \"\" + ip.charAt(0), 1, result);\n\nfor (String s : result) {\nSystem.out.println(s);\n}\n}\n\nprivate static void getPermutationWithSpaces(String ip, String op, int index, Set<String> result) {\nif (index == ip.length()) {\nresult.add(op);\nreturn;\n}\n\nchar ch = ip.charAt(index);\n\n// Choice 1: Add space before next char\ngetPermutationWithSpaces(ip, op + \" \" + ch, index + 1, result);\n\n// Choice 2: Add char without space\ngetPermutationWithSpaces(ip, op + ch, index + 1, result);\n}\n}\n```\n\n---\n\n## 🧩 Example for `\"ABC\"`\n\n```\nStart: op = \"A\", index = 1\n\nBranches:\n\"A B C\"\n\"A BC\"\n\"AB C\"\n\"ABC\"\n```\n\n*Output:**\n\n```\nA B C\nA BC\nAB C\nABC\n```\n\nPerfect ✔✔\n\n---\n\n## 🎯 Complexity\n\n| Measure | Value                                |\n| ------- | ------------------------------------ |\n| Time    | O(2ⁿ) — each character has 2 choices |\n| Space   | O(n) recursion stack + O(2ⁿ) results |\n\n---\n\n## 🌱 Key Learning\n\n```\nAny problem with \"insert space or not\" → 2 decisions per character → recursion tree.\n```\n\nThis is **another pure “decision space recursion”** problem — same pattern as:\n\nSubsets\nSubsequences\nBalanced parentheses\nBinary representation trees\n\n---\n\n*next logical progression problem**:\n\n### 🔥 *Permutation with Case Change* (`aBc`, `AbC`, etc.)\n\nIt’s the same recursion tree but instead of `\" \"` you branch on **uppercase vs lowercase**.\nA beautiful pattern-next-step.",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         }
       ],
       "notes": "# 🧩 Problem: List All Subsets of a String\n\n**Example:**  \nInput: `\"abc\"`  \nOutput: `[\"\", \"a\", \"b\", \"c\", \"ab\", \"ac\", \"bc\", \"abc\"]`\n---\n\n## 📜 Problem Description\n\n---\n\n## 🧠 Key Learnings\n\n### 1️⃣ Recursive Tree Thinking\nIf I can draw the recursion tree, I can write the recursive code.  \nEach level represents a decision: **include or exclude** the current character.\n\n### 2️⃣ Iterative vs Recursive Mindset\n| Type | How it works | Notes |\n|------|---------------|-------|\n| Iterative | Builds subsets level by level, expanding the list. | Easier to implement but needs careful list management. |\n| Recursive | Explores all include/exclude paths using a recursion tree. | Mirrors problem structure, easier to reason about. |\n\n### 3️⃣ Bug & Debug Lessons\n| Issue | Root Cause | Fix |\n|-------|-------------|-----|\n| `ConcurrentModificationException` | Modified `substrings` list while iterating. | Use a new temporary list (`newSubStrings`) and merge at end. |\n| Infinite Recursion | Forgot base condition (`index == length`). | Always write base condition before recursion logic. |\n| Jumped to fix too early | Googled instead of dry-running. | Pause and mentally simulate 1–2 iterations before coding. |\n\n---\n\n## 🌲 Recursive Tree Diagram\n\nBelow is the conceptual tree for `\"abc\"`:\n\n```arduino\n                      \"\"\n               /                  \\\n             \"a\"                  \"\"\n           /     \\              /     \\\n       \"ab\"      \"a\"         \"b\"       \"\"\n       /  \\      / \\        /  \\      / \\\n  \"abc\" \"ab\" \"ac\" \"a\"   \"bc\" \"b\"   \"c\"  \"\"\n\n\n```\n\nEach branch → include or exclude the current character.  \nBase case: when index == string.length() → add `current` to result.\n\n---\n\n## 🧮 Final Recursive Solution (Clean & Interview-Style)\n\n```java\nprivate static void generateSubsets(String input, int index, String current, List<String> result) {\n    if (index == input.length()) {\n        result.add(current);\n        return;\n    }\n    // Exclude current character\n    generateSubsets(input, index + 1, current, result);\n    // Include current character\n    generateSubsets(input, index + 1, current + input.charAt(index), result);\n}\n\n// Usage:\nList<String> result = new ArrayList<>();\ngenerateSubsets(\"abc\", 0, \"\", result);\nSystem.out.println(result);\n```\n\n---\n\n## ⚙️ Iterative Solution (for comparison)\n```java\nprivate static List<String> getSubSets(String input) {\n    List<String> substrings = new ArrayList<>();\n    substrings.add(\"\");\n    for (char ch : input.toCharArray()) {\n        List<String> newSubStrings = new ArrayList<>();\n        for (String subString : substrings) {\n            newSubStrings.add(subString + ch);\n        }\n        substrings.addAll(newSubStrings);\n    }\n    return substrings;\n}\n\n```\n---\n\n## ⏱️ Time and Space Complexity\n| Approach  | Time Complexity                | Space Complexity                                          | Explanation                                                                                                                        |\n| --------- | ------------------------------ | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |\n| Recursive | **O(2ⁿ)**                      | **O(n × 2ⁿ)**                                             | Each of the `n` characters can either be included or excluded → `2ⁿ` subsets. Each subset may take up to `O(n)` space when stored. |\n| Iterative | **O(2ⁿ)**                      | **O(n × 2ⁿ)**                                             | Every iteration doubles the subset list (same growth as recursion).                                                                |\n| Optimal   | Can’t be better than **O(2ⁿ)** | Generating all subsets inherently needs exponential time. |                                                                                                                                    |\n---\n\n## 🔀 Alternative Approaches\n\n1. **Bitmasking Approach (Iterative, Non-Recursive):**\n\n    * Use bits from `0` to `(1 << n) - 1`.\n    * For each number, if bit `j` is set → include `input[j]`.\n    * Good for compact, low-level control.\n\n   ```java\n   for (int mask = 0; mask < (1 << n); mask++) {\n       StringBuilder subset = new StringBuilder();\n       for (int j = 0; j < n; j++) {\n           if ((mask & (1 << j)) != 0)\n               subset.append(input.charAt(j));\n       }\n       result.add(subset.toString());\n   }\n   ```\n\n2. **Backtracking (Same as Recursion, but Explicit Path Tracking):**\n\n    * Similar to the recursive version, but emphasizes \"state undo\" (useful when subsets require additional constraints).\n\n---\n\n---\n\n## 🪶 Reflections\n\n* I understood recursion deeply — I just needed to slow down and trust my reasoning.\n* Dry-running on paper before coding reveals 80% of bugs.\n* This exercise re-activated my problem-solving flow and debugging awareness.\n* I now consciously separate logic design (recursion tree) from implementation details (loops, collections).\n\n---\n## 🔍 Deep-Dive Thought Tracker\n\n| Prompt                                  | My Answer                                   |\n| --------------------------------------- | ------------------------------------------- |\n| 🔹 What is the smallest solvable case?  | When index = length → add current string.   |\n| 🔹 How does each level change state?    | Chooses to include or exclude current char. |\n| 🔹 What’s the branching factor?         | 2 (include/exclude).                        |\n| 🔹 How do I avoid shared mutation bugs? | Pass new strings or new lists in recursion. |\n\n---\n## 🔁 Next Practice (Follow-up Problems)\n* [ ] Subset Sum Problem\n* [ ] Power Set (LeetCode #78)\n* [ ] Combination Sum (LeetCode #39)\n* [ ] Permutations of a String (LeetCode #46)\n\n---\n## 🧾 Tracker Summary\n\n| Category                    | Detail                                                             |\n| --------------------------- |--------------------------------------------------------------------|\n| **Topic**                   | Recursion / Subsets                                                |\n| **Time Taken**              | ~30 mins including debugging                                       |\n| **Initial Approach**        | Iterative (mutating list)                                          |\n| **Final Approach**          | Recursive (include/exclude)                                        |\n| **Complexity**              | Time: O(2ⁿ), Space: O(n × 2ⁿ)                                      |\n| **New Concepts Reinforced** | Recursion tree, base case design, mutation awareness               |\n| **Confidence Level**        | 🌕🌕🌕🌕⚪ (4/5)                                                    |\n| **Next Focus**              | Improve speed in deriving optimal code after writing naive version |\n| **Revisit Date**            | 14/11/25                                                           |\n---\n\n💎 Concept Clarity for Similar problems :\n\n| Concept         | Definition                                        | Example (`abc`)                                                 | Notes                                 |\n| --------------- | ------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------- |\n| **Substring**   | Continuous sequence of characters                 | `\"a\"`, `\"b\"`, `\"c\"`, `\"ab\"`, `\"bc\"`, `\"abc\"`                    | Must be contiguous. No skipping.      |\n| **Subsequence** | Can skip characters, but order must stay the same | `\"a\"`, `\"b\"`, `\"c\"`, `\"ab\"`, `\"ac\"`, `\"bc\"`, `\"abc\"`            | Order matters but continuity doesn’t. |\n| **Subset**      | From *set* perspective (ignores order)            | `{}`, `{a}`, `{b}`, `{c}`, `{a,b}`, `{b,c}`, `{a,c}`, `{a,b,c}` | Used for combinations / power set.    |\n\n🧠 Concept Reinforcement: How to identify the three\n\n| Pattern Type    | Clue in Problem                                         | Recursion Approach                                               |\n| --------------- | ------------------------------------------------------- | ---------------------------------------------------------------- |\n| **Substring**   | Words like *“continuous”*, *“contiguous”*               | Nested loops or sliding window (no recursion)                    |\n| **Subsequence** | Words like *“skip allowed”* but *order matters*         | Use recursion with inclusion/exclusion (like your current code)  |\n| **Subset**      | Words like *“set”, “power set”, “order doesn’t matter”* | Similar recursion but often requires sorting or unique filtering |\n\n🔍 Subset vs Subsequence vs Substring\n\n| Type            | Continuous? | Order Matters? | Example (\"abc\")                 |\n| --------------- | ----------- | -------------- | ------------------------------- |\n| **Substring**   | ✅ Yes       | ✅ Yes          | \"a\", \"ab\", \"bc\", \"abc\"          |\n| **Subsequence** | ❌ No        | ✅ Yes          | \"a\", \"ac\", \"bc\", \"abc\"          |\n| **Subset**      | ❌ No        | ❌ No           | {a}, {b}, {a,b}, {b,a}, {a,b,c} |\n\n---\n## 🏷️ Tags\n#recursion #arrays #bitmasking #leetcode78\n---\nsolved : true\ndifficulty :medium",
@@ -244,11 +433,21 @@
           "complexity": null,
           "solved": null,
           "notes_markdown": "",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         }
       ],
       "notes": null,
@@ -266,11 +465,21 @@
           "complexity": null,
           "solved": null,
           "notes_markdown": "",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/bigo/LogarithmicChart.java",
@@ -281,11 +490,21 @@
           "complexity": null,
           "solved": null,
           "notes_markdown": "",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/bigo/FactorialChart.java",
@@ -296,11 +515,21 @@
           "complexity": null,
           "solved": null,
           "notes_markdown": "",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/bigo/AllComplexitiesChart.java",
@@ -311,11 +540,21 @@
           "complexity": null,
           "solved": null,
           "notes_markdown": "",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/bigo/LinearChart.java",
@@ -326,11 +565,21 @@
           "complexity": null,
           "solved": null,
           "notes_markdown": "",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         },
         {
           "file": "src/main/java/bigo/ExponentialChart.java",
@@ -341,20 +590,30 @@
           "complexity": null,
           "solved": null,
           "notes_markdown": "",
-          "commits": [],
-          "first_revision_date": null,
-          "second_revision_date": null,
-          "final_revision_date": null,
-          "days_since_last": null
+          "commits": [
+            {
+              "date": "2025-12-04T01:40:50+05:30",
+              "message": "progress dashboard +bg o + few recursion problems"
+            }
+          ],
+          "commit_date": "2025-12-03T20:10:50+00:00",
+          "r1": "2025-12-06T20:10:50+00:00",
+          "r2": "2025-12-13T20:10:50+00:00",
+          "r3": "2025-12-28T20:10:50+00:00",
+          "r4": "2026-01-12T20:10:50+00:00",
+          "revisions": [],
+          "next_due": "2025-12-06T20:10:50+00:00",
+          "next_step": "First revision",
+          "days_until_next": -179
         }
       ],
-      "notes": "# ⚡ Big-O Notes — Time & Space Complexity (Intuitive + Visual Guide)\n\n---\n\n## 🧠 What Is Big-O?\n\n**Big-O notation** describes **how the time or space used by a program grows** as the size of input (**n**) increases.\n\nIt tells you *how fast things blow up or shrink* — not the exact speed.\n\n> 💬 Think of Big-O as “How many steps will my code roughly take if I double the input?”\n\n---\n\n## 🌱 1. Big-O Means \"Growth Pattern\"\n\n| Input Size (n) | O(1) | O(n) | O(n²) | O(2ⁿ) |\n|----------------|------|------|--------|--------|\n| 1 | 1 | 1 | 1 | 2 |\n| 2 | 1 | 2 | 4 | 4 |\n| 3 | 1 | 3 | 9 | 8 |\n| 4 | 1 | 4 | 16 | 16 |\n| 10 | 1 | 10 | 100 | 1024 |\n\n➡️ Notice how **O(2ⁿ)** explodes, while **O(1)** stays flat.\n\n---\n\n## 🌾 2. Visual Intuition for Common Complexities\n\n### ⚙️ Constant Time — **O(1)**\n> “Always the same number of steps.”\n\nExample:\n```java\nint x = arr[5];\n```\n\n📈 Grows flat — doesn’t depend on input size.\n\n---\n\n### 🪴 Linear Time — **O(n)**\n\n> “Work grows in direct proportion to input size.”\n\nExample:\n\n```java\nfor(int i=0; i<n; i++)\n   print(arr[i]);\n```\n\nIf you double n, time doubles.\n📈 Straight diagonal line.\n\n![Linear](dsa/src/main/java/bigo/images/linear.png)\n\n---\n\n### 🌻 Quadratic Time — **O(n²)**\n\n> “Work grows as the square of input size.”\n\nExample:\n\n```java\nfor(i=0;i<n;i++)\n  for(j=0;j<n;j++)\n    print(i,j);\n```\n\nIf n=10 → 100 steps; if n=100 → 10,000 steps.\n📈 Steep parabola — nested loops.\n\n![Quadratic](dsa/src/main/java/bigo/images/quadratic.png)\n\n---\n\n### 🌲 Logarithmic Time — **O(log n)**\n\n> “Dividing the work in half each time.”\n\nExample: Binary Search\n\n```java\nint binarySearch(int arr[], int target){\n    int l=0, r=arr.length-1;\n    while(l<=r){\n        int mid = (l+r)/2;\n        if(arr[mid]==target) return mid;\n        else if(arr[mid]<target) l=mid+1;\n        else r=mid-1;\n    }\n}\n```\n\nEach step halves the array size:\nn → n/2 → n/4 → n/8 → … → 1\n📈 Grows slowly — even for huge n.\n\n| n         | Steps |\n| --------- | ----- |\n| 8         | 3     |\n| 16        | 4     |\n| 1,024     | 10    |\n| 1,000,000 | 20    |\n\n🧩 Opposite of exponentials — *shrinks fast*.\n\n![Logarithmic](dsa/src/main/java/bigo/images/logarithmic.png)\n\n---\n\n### 🌸 Exponential Time — **O(2ⁿ)**\n\n> “Work doubles at each step.”\n\nExample: Subset generation or recursion with two decisions (include/exclude).\n\n```\nAt each char → two choices: ✅ include / ❌ exclude\n```\n\n| Input length | Subsets generated |\n| ------------ | ----------------- |\n| 1            | 2                 |\n| 2            | 4                 |\n| 3            | 8                 |\n| 4            | 16                |\n| n            | 2ⁿ                |\n\n🌀 Tree expands like a fractal — doubles each level.\n\nIf each subset also takes O(n) to build → **O(n·2ⁿ)** total.\n\n![Exponential](dsa/src/main/java/bigo/images/exponential.png)\n\n---\n\n### 🌺 Factorial Time — **O(n!)**\n\n> “Explore all possible orderings.”\n\nExample: generating all permutations of n elements.\nFirst position: n choices → next: (n−1) → next: (n−2)… → 1\nTotal = **n! = n × (n−1) × … × 1**\n\n| n  | n!        | Approx Steps |\n| -- | --------- | ------------ |\n| 3  | 6         | small        |\n| 5  | 120       | ok           |\n| 10 | 3,628,800 | 😱 huge      |\n\n📈 Explodes faster than exponential.\n\n![Factorial Complexity](dsa/src/main/java/bigo/images/factorial.png)\n\n---\n\n## 🧩 3. How to Guess Complexity by Looking\n\n| What You See in Code                        | Likely Complexity |\n| ------------------------------------------- | ----------------- |\n| Single loop                                 | O(n)              |\n| Two nested loops                            | O(n²)             |\n| Three nested loops                          | O(n³)             |\n| Divide array in half each step              | O(log n)          |\n| Divide and process both halves (merge sort) | O(n log n)        |\n| Explore all subsets                         | O(2ⁿ)             |\n| Explore all permutations                    | O(n!)             |\n| Constant operations only                    | O(1)              |\n\n---\n\n## 🪄 4. Connecting Visual → Math\n\n| Visual Intuition         | Math Form | What It Means             |\n| ------------------------ | --------- | ------------------------- |\n| **Doubles every step**   | 2ⁿ        | “2 choices per item”      |\n| **Triples every step**   | 3ⁿ        | “3 choices per step”      |\n| **Halves each step**     | log₂ n    | “How many times until 1?” |\n| **Adds one each step**   | n         | “Linear growth”           |\n| **Adds layers of loops** | n², n³    | “Nested passes”           |\n\n💬 Think of **log** as *“how many times can I cut it in half?”*\nand **2ⁿ** as *“how many times does it double?”*\n\n---\n\n## 🌿 5. Space Complexity (Memory Growth)\n\n| Code Behavior             | Space              |\n| ------------------------- | ------------------ |\n| Use few variables         | O(1)               |\n| Store an array of size n  | O(n)               |\n| Nested lists (n×n matrix) | O(n²)              |\n| Recursion depth = n       | O(n) (stack space) |\n| Store all subsets         | O(n·2ⁿ)            |\n\n🧠 Tip: Space often = size of data you keep at once (arrays, recursion calls, or output).\n\n---\n\n## 🧭 6. Rule of Thumb for Recursive Problems\n\n1️⃣ **Count the branches**\n How many calls are made per level? (branching factor **b**)\n2️⃣ **Count the depth**\n How deep does recursion go? (levels **d**)\n3️⃣ **Total calls ≈ bᵈ**\n\n> 💬 Example: subsets → 2 branches (✅/❌) × n levels → 2ⁿ calls.\n\nIf each call costs O(1): total O(2ⁿ).\nIf each call builds a string of length n: O(n·2ⁿ).\n\n---\n\n## 🌼 7. Why Exponential and Factorial Feel \"Impossible\"\n\n* O(2ⁿ) → doubles every new element\n* O(n!) → grows even faster; try listing all 10! permutations — impossible manually.\n\nThat’s why we look for **DP, pruning, or greedy** tricks to cut branches early.\n\n---\n\n## 💫 8. Comparing Growth Visually\n\n```\nTime ↑\n│                        O(n!)\n│                     O(2ⁿ)\n│                O(n³)\n│            O(n²)\n│        O(n log n)\n│     O(n)\n│  O(log n)\n│O(1)\n└─────────────────────────────→ n (input)\n```\n\n![All Complexities Annotated](dsa/src/main/java/bigo/images/all_complexities_annotated.png)\n\n📈 Notice exponential/factorial skyrocket, logarithmic hardly moves.\n\n---\n\n## 🔍 9. Quick Complexity Recognition Guide\n\n| Pattern Type                        | Typical Complexity | Example                          |\n| ----------------------------------- | ------------------ | -------------------------------- |\n| **Simple loop**                     | O(n)               | Sum array                        |\n| **Nested loops**                    | O(n²)              | Matrix traversal                 |\n| **Divide & conquer**                | O(n log n)         | Merge sort, Quick sort           |\n| **Binary search**                   | O(log n)           | Searching in sorted array        |\n| **Subsets / Backtracking**          | O(2ⁿ)              | Power set                        |\n| **Permutations / DFS of all paths** | O(n!)              | Traveling salesman, permutations |\n| **Constant ops**                    | O(1)               | Accessing index, swapping        |\n\n---\n\n## 🧮 10. Math to Intuition Bridge\n\n| Mathematical View | Visual Meaning                           |\n| ----------------- | ---------------------------------------- |\n| 2ⁿ                | Every element doubles output count       |\n| n log n           | Slightly more than linear, e.g., sorting |\n| log₂ n            | Keep halving input (binary search)       |\n| n²                | Two nested passes through data           |\n| n³                | Three nested passes                      |\n| n!                | All orderings of elements                |\n\n---\n\n## 🪶 11. Tiny Summary Table (Time vs Space)\n\n| Category    | Time       | Space   | Example           |\n| ----------- | ---------- | ------- | ----------------- |\n| Constant    | O(1)       | O(1)    | Swap 2 numbers    |\n| Linear      | O(n)       | O(1)    | Find max in array |\n| Logarithmic | O(log n)   | O(1)    | Binary Search     |\n| Linear-Log  | O(n log n) | O(n)    | Merge Sort        |\n| Quadratic   | O(n²)      | O(1)    | Bubble Sort       |\n| Exponential | O(2ⁿ)      | O(n·2ⁿ) | Subset Generation |\n| Factorial   | O(n!)      | O(n·n!) | Permutations      |\n\n---\n\n## 🧭 12. How to Estimate Complexity in Practice\n\nAsk yourself:\n\n1. 🔹 **How many choices** do I have at each step?\n2. 🔹 **How deep** does it go (loop/recursion)?\n3. 🔹 **What work** happens inside each step?\n   → Multiply them together.\n\nThat’s your rough Big-O.\n\n---\n\n## 🧘 Final Thought \n\n> You don’t need to love formulas — you need to **see patterns**.\n> Big-O is just a way to **describe how patterns grow** when inputs increase.\n\nOnce you visualize doubling, halving, or nesting,\nyou already understand complexity better than most.\n\n---\n\n🪷 *Written for intuition-based learners. Visuals over math.*\n\n---",
+      "notes": "# ⚡ Big-O Notes — Time & Space Complexity (Intuitive + Visual Guide)\n\n---\n\n## 🧠 What Is Big-O?\n\n**Big-O notation** describes **how the time or space used by a program grows** as the size of input (**n**) increases.\n\nIt tells you *how fast things blow up or shrink* — not the exact speed.\n\n> 💬 Think of Big-O as “How many steps will my code roughly take if I double the input?”\n\n---\n\n## 🌱 1. Big-O Means \"Growth Pattern\"\n\n| Input Size (n) | O(1) | O(n) | O(n²) | O(2ⁿ) |\n|----------------|------|------|--------|--------|\n| 1 | 1 | 1 | 1 | 2 |\n| 2 | 1 | 2 | 4 | 4 |\n| 3 | 1 | 3 | 9 | 8 |\n| 4 | 1 | 4 | 16 | 16 |\n| 10 | 1 | 10 | 100 | 1024 |\n\n➡️ Notice how **O(2ⁿ)** explodes, while **O(1)** stays flat.\n\n---\n\n## 🌾 2. Visual Intuition for Common Complexities\n\n### ⚙️ Constant Time — **O(1)**\n> “Always the same number of steps.”\n\nExample:\n```java\nint x = arr[5];\n```\n\n📈 Grows flat — doesn’t depend on input size.\n\n---\n\n### 🪴 Linear Time — **O(n)**\n\n> “Work grows in direct proportion to input size.”\n\nExample:\n\n```java\nfor(int i=0; i<n; i++)\n   print(arr[i]);\n```\n\nIf you double n, time doubles.\n📈 Straight diagonal line.\n\n![Linear](images/linear.png)\n\n---\n\n### 🌻 Quadratic Time — **O(n²)**\n\n> “Work grows as the square of input size.”\n\nExample:\n\n```java\nfor(i=0;i<n;i++)\n  for(j=0;j<n;j++)\n    print(i,j);\n```\n\nIf n=10 → 100 steps; if n=100 → 10,000 steps.\n📈 Steep parabola — nested loops.\n\n![Quadratic](images/quadratic.png)\n\n---\n\n### 🌲 Logarithmic Time — **O(log n)**\n\n> “Dividing the work in half each time.”\n\nExample: Binary Search\n\n```java\nint binarySearch(int arr[], int target){\n    int l=0, r=arr.length-1;\n    while(l<=r){\n        int mid = (l+r)/2;\n        if(arr[mid]==target) return mid;\n        else if(arr[mid]<target) l=mid+1;\n        else r=mid-1;\n    }\n}\n```\n\nEach step halves the array size:\nn → n/2 → n/4 → n/8 → … → 1\n📈 Grows slowly — even for huge n.\n\n| n         | Steps |\n| --------- | ----- |\n| 8         | 3     |\n| 16        | 4     |\n| 1,024     | 10    |\n| 1,000,000 | 20    |\n\n🧩 Opposite of exponentials — *shrinks fast*.\n\n![Logarithmic](images/logarithmic.png)\n\n---\n\n### 🌸 Exponential Time — **O(2ⁿ)**\n\n> “Work doubles at each step.”\n\nExample: Subset generation or recursion with two decisions (include/exclude).\n\n```\nAt each char → two choices: ✅ include / ❌ exclude\n```\n\n| Input length | Subsets generated |\n| ------------ | ----------------- |\n| 1            | 2                 |\n| 2            | 4                 |\n| 3            | 8                 |\n| 4            | 16                |\n| n            | 2ⁿ                |\n\n🌀 Tree expands like a fractal — doubles each level.\n\nIf each subset also takes O(n) to build → **O(n·2ⁿ)** total.\n\n![Exponential](images/exponential.png)\n\n---\n\n### 🌺 Factorial Time — **O(n!)**\n\n> “Explore all possible orderings.”\n\nExample: generating all permutations of n elements.\nFirst position: n choices → next: (n−1) → next: (n−2)… → 1\nTotal = **n! = n × (n−1) × … × 1**\n\n| n  | n!        | Approx Steps |\n| -- | --------- | ------------ |\n| 3  | 6         | small        |\n| 5  | 120       | ok           |\n| 10 | 3,628,800 | 😱 huge      |\n\n📈 Explodes faster than exponential.\n\n![Factorial Complexity](images/factorial.png)\n\n---\n\n## 🧩 3. How to Guess Complexity by Looking\n\n| What You See in Code                        | Likely Complexity |\n| ------------------------------------------- | ----------------- |\n| Single loop                                 | O(n)              |\n| Two nested loops                            | O(n²)             |\n| Three nested loops                          | O(n³)             |\n| Divide array in half each step              | O(log n)          |\n| Divide and process both halves (merge sort) | O(n log n)        |\n| Explore all subsets                         | O(2ⁿ)             |\n| Explore all permutations                    | O(n!)             |\n| Constant operations only                    | O(1)              |\n\n---\n\n## 🪄 4. Connecting Visual → Math\n\n| Visual Intuition         | Math Form | What It Means             |\n| ------------------------ | --------- | ------------------------- |\n| **Doubles every step**   | 2ⁿ        | “2 choices per item”      |\n| **Triples every step**   | 3ⁿ        | “3 choices per step”      |\n| **Halves each step**     | log₂ n    | “How many times until 1?” |\n| **Adds one each step**   | n         | “Linear growth”           |\n| **Adds layers of loops** | n², n³    | “Nested passes”           |\n\n💬 Think of **log** as *“how many times can I cut it in half?”*\nand **2ⁿ** as *“how many times does it double?”*\n\n---\n\n## 🌿 5. Space Complexity (Memory Growth)\n\n| Code Behavior             | Space              |\n| ------------------------- | ------------------ |\n| Use few variables         | O(1)               |\n| Store an array of size n  | O(n)               |\n| Nested lists (n×n matrix) | O(n²)              |\n| Recursion depth = n       | O(n) (stack space) |\n| Store all subsets         | O(n·2ⁿ)            |\n\n🧠 Tip: Space often = size of data you keep at once (arrays, recursion calls, or output).\n\n---\n\n## 🧭 6. Rule of Thumb for Recursive Problems\n\n1️⃣ **Count the branches**\n How many calls are made per level? (branching factor **b**)\n2️⃣ **Count the depth**\n How deep does recursion go? (levels **d**)\n3️⃣ **Total calls ≈ bᵈ**\n\n> 💬 Example: subsets → 2 branches (✅/❌) × n levels → 2ⁿ calls.\n\nIf each call costs O(1): total O(2ⁿ).\nIf each call builds a string of length n: O(n·2ⁿ).\n\n---\n\n## 🌼 7. Why Exponential and Factorial Feel \"Impossible\"\n\n* O(2ⁿ) → doubles every new element\n* O(n!) → grows even faster; try listing all 10! permutations — impossible manually.\n\nThat’s why we look for **DP, pruning, or greedy** tricks to cut branches early.\n\n---\n\n## 💫 8. Comparing Growth Visually\n\n```\nTime ↑\n│                        O(n!)\n│                     O(2ⁿ)\n│                O(n³)\n│            O(n²)\n│        O(n log n)\n│     O(n)\n│  O(log n)\n│O(1)\n└─────────────────────────────→ n (input)\n```\n\n![All Complexities Annotated](images/all_complexities_annotated.png)\n\n📈 Notice exponential/factorial skyrocket, logarithmic hardly moves.\n\n---\n\n## 🔍 9. Quick Complexity Recognition Guide\n\n| Pattern Type                        | Typical Complexity | Example                          |\n| ----------------------------------- | ------------------ | -------------------------------- |\n| **Simple loop**                     | O(n)               | Sum array                        |\n| **Nested loops**                    | O(n²)              | Matrix traversal                 |\n| **Divide & conquer**                | O(n log n)         | Merge sort, Quick sort           |\n| **Binary search**                   | O(log n)           | Searching in sorted array        |\n| **Subsets / Backtracking**          | O(2ⁿ)              | Power set                        |\n| **Permutations / DFS of all paths** | O(n!)              | Traveling salesman, permutations |\n| **Constant ops**                    | O(1)               | Accessing index, swapping        |\n\n---\n\n## 🧮 10. Math to Intuition Bridge\n\n| Mathematical View | Visual Meaning                           |\n| ----------------- | ---------------------------------------- |\n| 2ⁿ                | Every element doubles output count       |\n| n log n           | Slightly more than linear, e.g., sorting |\n| log₂ n            | Keep halving input (binary search)       |\n| n²                | Two nested passes through data           |\n| n³                | Three nested passes                      |\n| n!                | All orderings of elements                |\n\n---\n\n## 🪶 11. Tiny Summary Table (Time vs Space)\n\n| Category    | Time       | Space   | Example           |\n| ----------- | ---------- | ------- | ----------------- |\n| Constant    | O(1)       | O(1)    | Swap 2 numbers    |\n| Linear      | O(n)       | O(1)    | Find max in array |\n| Logarithmic | O(log n)   | O(1)    | Binary Search     |\n| Linear-Log  | O(n log n) | O(n)    | Merge Sort        |\n| Quadratic   | O(n²)      | O(1)    | Bubble Sort       |\n| Exponential | O(2ⁿ)      | O(n·2ⁿ) | Subset Generation |\n| Factorial   | O(n!)      | O(n·n!) | Permutations      |\n\n---\n\n## 🧭 12. How to Estimate Complexity in Practice\n\nAsk yourself:\n\n1. 🔹 **How many choices** do I have at each step?\n2. 🔹 **How deep** does it go (loop/recursion)?\n3. 🔹 **What work** happens inside each step?\n   → Multiply them together.\n\nThat’s your rough Big-O.\n\n---\n\n## 🧘 Final Thought \n\n> You don’t need to love formulas — you need to **see patterns**.\n> Big-O is just a way to **describe how patterns grow** when inputs increase.\n\nOnce you visualize doubling, halving, or nesting,\nyou already understand complexity better than most.\n\n---\n\n🪷 *Written for intuition-based learners. Visuals over math.*\n\n---",
       "notes_path": "src/main/java/bigo/notes.md"
     }
   },
-  "total_files_scanned": 21,
+  "total_files_scanned": 23,
   "summary": {
-    "patterns_count": 5,
-    "total_problems": 21
+    "patterns_count": 6,
+    "total_problems": 23
   }
 }

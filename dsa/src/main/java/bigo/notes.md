@@ -54,7 +54,7 @@ for(int i=0; i<n; i++)
 If you double n, time doubles.
 📈 Straight diagonal line.
 
-![Linear](dsa/src/main/java/bigo/images/linear.png)
+![Linear](images/linear.png)
 
 ---
 
@@ -73,7 +73,7 @@ for(i=0;i<n;i++)
 If n=10 → 100 steps; if n=100 → 10,000 steps.
 📈 Steep parabola — nested loops.
 
-![Quadratic](dsa/src/main/java/bigo/images/quadratic.png)
+![Quadratic](images/quadratic.png)
 
 ---
 
@@ -108,7 +108,7 @@ n → n/2 → n/4 → n/8 → … → 1
 
 🧩 Opposite of exponentials — *shrinks fast*.
 
-![Logarithmic](dsa/src/main/java/bigo/images/logarithmic.png)
+![Logarithmic](images/logarithmic.png)
 
 ---
 
@@ -134,7 +134,7 @@ At each char → two choices: ✅ include / ❌ exclude
 
 If each subset also takes O(n) to build → **O(n·2ⁿ)** total.
 
-![Exponential](dsa/src/main/java/bigo/images/exponential.png)
+![Exponential](images/exponential.png)
 
 ---
 
@@ -154,7 +154,7 @@ Total = **n! = n × (n−1) × … × 1**
 
 📈 Explodes faster than exponential.
 
-![Factorial Complexity](dsa/src/main/java/bigo/images/factorial.png)
+![Factorial Complexity](images/factorial.png)
 
 ---
 
@@ -241,7 +241,7 @@ Time ↑
 └─────────────────────────────→ n (input)
 ```
 
-![All Complexities Annotated](dsa/src/main/java/bigo/images/all_complexities_annotated.png)
+![All Complexities Annotated](images/all_complexities_annotated.png)
 
 📈 Notice exponential/factorial skyrocket, logarithmic hardly moves.
 

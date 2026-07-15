@@ -1,0 +1,15 @@
+# Run dashboard
+
+source .venv/bin/activate
+
+python tools/repo_progress1.py \
+  --root . \
+  --out summary.json \
+  --only src/main/java \
+  --exclude .venv venv tools target .idea
+
+streamlit run tools/repo_progress1.py -- \
+  --root . \
+  --dashboard \
+  --only src/main/java \
+  --exclude .venv venv tools target .idea
