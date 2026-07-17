@@ -248,6 +248,7 @@ class sortStack {
         }
         return tmpStack;
     }
+    Queue
     public static void rearrange(Stack<Integer> stack,int number){
         //base cond : stack is empty or if peek element is less than number to be added , we will push the number onto the stack
         if(stack.isEmpty() || stack.peek() <= number) {
