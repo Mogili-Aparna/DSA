@@ -1,4 +1,4 @@
-/**
+package Queue; /**
  # Reverse Queue
 
  **Date:** 2026-07-15
@@ -282,7 +282,7 @@
 import java.util.Queue;
 import java.util.Stack;
 
-public class Solution {
+public class ReverseAQueue {
 
     public Queue<Integer> reverseQueue(Queue<Integer> q) {
 

@@ -1,4 +1,4 @@
-/**
+package stack; /**
  # Remove Stars From a String
 
  **Date:** 2026-07-15
@@ -442,7 +442,7 @@
 
 import java.util.Stack;
 
-public class Solution {
+public class RemoveStarsFromString {
 
     public String removeStars(String str) {
 
@@ -469,3 +469,4 @@ public class Solution {
 
         return result.reverse().toString();
     }
+}

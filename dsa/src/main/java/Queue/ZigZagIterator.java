@@ -1,4 +1,4 @@
-/**
+package Queue; /**
  # Zigzag Iterator
 
  **Date:** 2026-07-15
@@ -422,11 +422,11 @@
 
 import java.util.*;
 
-class Solution {
+class ZigZagIterator {
 
     Queue<Iterator<Integer>> q;
 
-    public Solution(
+    public ZigZagIterator(
             List<Integer> v1,
             List<Integer> v2) {
 

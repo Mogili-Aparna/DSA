@@ -1,4 +1,4 @@
-/**
+package stack; /**
  # Make The String Good
 
  **Date:** 2026-07-15
@@ -507,7 +507,7 @@
 
 import java.util.Stack;
 
-public class Solution {
+public class MakeStringGreat {
 
     public String makeGood(String str) {
 

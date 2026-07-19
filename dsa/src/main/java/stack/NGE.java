@@ -1,3 +1,4 @@
+package stack;
 /*Problem:
 Next Greater Element
 problem :
@@ -749,6 +750,11 @@ Any element further left that could use 7 as a next greater element could use 10
 This is the heart of a **monotonic stack**.
 
 */
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Stack;
 
 public class NGE {
     public List<Integer> nextLargerElementSol1(List<Integer> arr) {

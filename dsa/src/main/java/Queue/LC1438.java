@@ -1,3 +1,8 @@
+package Queue;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /*
 ========================================================
 LC 1438 : Longest Continuous Subarray With Absolute Diff

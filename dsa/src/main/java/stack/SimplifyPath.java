@@ -1,4 +1,4 @@
-/**
+package stack; /**
  # Simplify Unix File Path
 
  **Date:** 2026-07-15
@@ -350,7 +350,7 @@
 
 import java.util.*;
 
-public class Solution {
+public class SimplifyPath {
 
     public String simplifyPath(String path) {
 

@@ -511,53 +511,60 @@
  # Solution 1
  # Recursive Binary Conversion
  */
+package Queue;
 
-public static String[] generateBinaryNumbers(int n) {
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
-    String[] result = new String[n];
+public class GenerateNBinaries {
+    public static String[] generateBinaryNumbersRecursive(int n) {
 
-    for (int i = 1; i <= n; i++) {
-        result[i - 1] = getBinaryRep(i);
+        String[] result = new String[n];
+
+        for (int i = 1; i <= n; i++) {
+            result[i - 1] = getBinaryRep(i);
+        }
+
+        return result;
     }
 
-    return result;
-}
+    private static String getBinaryRep(int num) {
 
-private static String getBinaryRep(int num) {
+        if (num <= 0)
+            return "";
 
-    if (num <= 0)
-        return "";
-
-    return getBinaryRep(num / 2)
-            + (num % 2);
-}
-
-/**
- -------------------------------------------------------
-
- # Solution 2
- # Queue BFS Solution
- */
-
-public static String[] generateBinaryNumbers(int n) {
-
-    Queue<String> q =
-            new LinkedList<>();
-
-    ArrayList<String> result =
-            new ArrayList<>();
-
-    q.add("1");
-
-    for (int i = 0; i < n; i++) {
-
-        String current = q.poll();
-
-        result.add(current);
-
-        q.add(current + "0");
-        q.add(current + "1");
+        return getBinaryRep(num / 2)
+                + (num % 2);
     }
 
-    return result.toArray(String[]::new);
+    /**
+     * -------------------------------------------------------
+     * <p>
+     * # Solution 2
+     * # Queue BFS Solution
+     */
+
+    public static String[] generateBinaryNumbersBFS(int n) {
+
+        Queue<String> q =
+                new LinkedList<>();
+
+        ArrayList<String> result =
+                new ArrayList<>();
+
+        q.add("1");
+
+        for (int i = 0; i < n; i++) {
+
+            String current = q.poll();
+
+            result.add(current);
+
+            q.add(current + "0");
+            q.add(current + "1");
+        }
+
+        return result.toArray(String[]::new);
+    }
 }

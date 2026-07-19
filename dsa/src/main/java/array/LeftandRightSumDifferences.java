@@ -1,4 +1,4 @@
-/*
+package array;/*
 *
 * Problem :
 Given an input array of integers nums, find an integer array, let's call it differenceArray, of the same length as an input integer array.
@@ -56,6 +56,8 @@ O(n)
 *
 *
 * */
+
+import java.util.Arrays;
 
 public class LeftandRightSumDifferences {
     public int[] findDifferenceArray(int[] nums) {

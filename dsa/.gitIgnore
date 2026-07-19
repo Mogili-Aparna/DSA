@@ -1,0 +1,50 @@
+# ====================================================================
+# Python Configuration
+# ====================================================================
+# Ignore the Python virtual environment completely
+**/.venv/
+**/venv/
+**/ENV/
+**/env/
+
+# Ignoregit add . compiled Python bytecode
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
+# Ignore local environment variable files
+.env
+.env.local
+
+
+# ====================================================================
+# Java & Build Automation Configuration
+# ====================================================================
+# Ignore compiled Java class files
+**/*.class
+
+# Ignore Maven compilation build directories
+**/target/
+
+# Ignore Gradle build directories (if you switch to Gradle later)
+**/.gradle/
+**/build/
+
+
+# ====================================================================
+# IDE & System Specific Configurations
+# ====================================================================
+# Ignore IntelliJ IDEA metadata (keeps your custom configurations local)
+**/.idea/
+**/*.iml
+**/*.iws
+**/*.ipr
+**/out/
+
+# Ignore VS Code configuration metadata (if used)
+.vscode/
+
+# Ignore macOS system metadata files
+.DS_Store
+Thumbs.db

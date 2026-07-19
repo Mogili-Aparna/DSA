@@ -1,3 +1,5 @@
+package stack;
+
 import java.util.*;
 /**
  # Sort a Stack Using Another Stack
@@ -219,7 +221,7 @@ class IterativeSolution {
  */
 
 
-class sortStack {
+public class sortStack {
     /*public static Stack<Integer> sortStack(Stack<Integer> input) {
         Stack<Integer> tmpStack = new Stack<Integer>();
         // ToDo: Write Your Code Here.
@@ -248,7 +250,7 @@ class sortStack {
         }
         return tmpStack;
     }
-    Queue
+
     public static void rearrange(Stack<Integer> stack,int number){
         //base cond : stack is empty or if peek element is less than number to be added , we will push the number onto the stack
         if(stack.isEmpty() || stack.peek() <= number) {

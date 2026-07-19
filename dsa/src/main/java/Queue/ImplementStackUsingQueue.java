@@ -433,16 +433,16 @@
 
  # Solution
  */
-
+package Queue;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Solution {
+class ImplementStackUsingQueue {
 
     Queue<Integer> queue1;
     Queue<Integer> queue2;
 
-    public Solution() {
+    public ImplementStackUsingQueue() {
 
         queue1 = new LinkedList<>();
         queue2 = new LinkedList<>();

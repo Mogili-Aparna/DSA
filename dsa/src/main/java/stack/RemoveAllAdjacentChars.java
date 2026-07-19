@@ -1,4 +1,4 @@
-/**
+package stack; /**
  # Remove All Adjacent Duplicates in String
 
  **Date:** 2026-07-15
@@ -403,7 +403,7 @@
 
 import java.util.Stack;
 
-public class Solution {
+public class RemoveAllAdjacentChars {
 
     public String removeDuplicates(String str) {
 

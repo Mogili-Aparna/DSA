@@ -197,28 +197,25 @@
  * Space:
  * O(k)
  *
- */
 
-PriorityQueue<int[]> pq =
-        new PriorityQueue<>(
-                (a,b)->b[0]-a[0]);
+    PriorityQueue<int[]> pq =
+            new PriorityQueue<>(
+                    (a, b) -> b[0] - a[0]);
 
-for(int i=0;i<n;i++)
-        {
-        pq.offer(new int[]{nums[i],i});
+    for (int i = 0; i < n; i++) {
+        pq.offer(new int[]{nums[i], i});
 
-        while(!pq.isEmpty()
-            && pq.peek()[1] <= i-k)
-        {
-        pq.poll();
+        while (!pq.isEmpty()
+                && pq.peek()[1] <= i - k) {
+            pq.poll();
+        }
+
+        if (i >= k - 1) {
+            ans.add(pq.peek()[0]);
+        }
     }
 
-            if(i>=k-1)
-        {
-        ans.add(pq.peek()[0]);
-        }
-        }
-/**
+
  * ============================================================
  * SOLUTION 2 : Monotonic Decreasing Deque
  * ============================================================
@@ -239,7 +236,7 @@ for(int i=0;i<n;i++)
  * Space:
  * O(k)
  *
- */
+
 
 Deque<Integer> dq =
         new LinkedList<>();
@@ -269,7 +266,7 @@ for(int i=0;i<n;i++)
         ans.add(nums[dq.peekFirst()]);
         }
         }
-/**
+
  * ============================================================
  * Heap vs Monotonic Queue
  * ============================================================
