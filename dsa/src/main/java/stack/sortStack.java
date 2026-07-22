@@ -224,7 +224,6 @@ class IterativeSolution {
 public class sortStack {
     /*public static Stack<Integer> sortStack(Stack<Integer> input) {
         Stack<Integer> tmpStack = new Stack<Integer>();
-        // ToDo: Write Your Code Here.
         // loop untill the end of the stack. return empty stack if inuput is null or empty
         if(input == null) return tmpStack;
         while(!input.isEmpty()){
@@ -242,7 +241,6 @@ public class sortStack {
     }*/
     public static Stack<Integer> sortStack(Stack<Integer> input) {
         Stack<Integer> tmpStack = new Stack<Integer>();
-        // ToDo: Write Your Code Here.
         // loop untill the end of the stack. return empty stack if inuput is null or empty
         while(input!=null && !input.isEmpty()){
             //recursive function to push the peek of input and rearrange exising elements of tmp stack

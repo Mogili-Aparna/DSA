@@ -64,7 +64,6 @@ public class LeftandRightSumDifferences {
         if(nums == null || nums.length == 0) return new int[0];
         int n = nums.length;
         int[] differenceArray = new int[n];
-        // TODO: Write your code here
         int leftSum = 0;
         int rightSum = 0;
         // Calculate the total sum of the array

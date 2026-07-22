@@ -30,7 +30,7 @@ public class HeightOfABinaryTree {
          output : 5
            height = # of layers (depth)
 
- 💡 Notes for Your IBH Section
+ 💡 Notes (IBH Section)
 | Step               | What It Means Here                                |
 | ------------------ | ------------------------------------------------- |
 | **Base Condition** | Tree is empty (`root == null`) → height = 0       |

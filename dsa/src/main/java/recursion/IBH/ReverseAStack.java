@@ -50,7 +50,7 @@ Use recursion to remove all elements, and while unwinding, insert each element a
 🧩 "Reverse a stack" = “Reverse smaller part + put the removed element at bottom.”
 The recursion’s call stack itself acts as the temporary structure.
 
-🪶 Notes for Your GitHub (Markdown Summary)
+🪶 Notes  (Markdown Summary)
 | Concept              | Explanation                              |
 | -------------------- | ---------------------------------------- |
 | **Approach**         | IBH (Base → Hypothesis → Induction)      |

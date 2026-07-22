@@ -8,7 +8,7 @@ Move N disks from rod A → rod C using rod B, following rules:
 2. Larger disk can’t be placed on smaller disk.
 3. Only top disk can be moved.
 
-🧠 IBH Recursion Breakdown (for your code)
+🧠 IBH Recursion Breakdown
 | Step                 | Meaning                                | Example (n=3)               |
 | -------------------- | -------------------------------------- | --------------------------- |
 | **Base**             | Move 1 disk from source → destination  | `move 1 from s → d`         |

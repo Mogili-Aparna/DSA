@@ -1,3 +1,5 @@
+package array;
+
 /*Problem: Find Highest Altitude
 
 Pattern:
@@ -50,7 +52,6 @@ n == gain.length
 public class MaxAltitude {
     public int largestAltitude(int[] gain) {
         int maxAltitude = 0,altitude=0; // To store the maximum altitude encountered
-        // TODO: Write your code here
         if(gain == null || gain.length == 0) return maxAltitude;
         for(int num : gain) {
             altitude=altitude+num;
